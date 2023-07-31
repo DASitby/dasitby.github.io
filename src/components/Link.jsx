@@ -1,9 +1,9 @@
-'use client'
 import React, { useState } from 'react';
-export default function Link({name, text, setWindowText, handleShowWindow, handleHideWindow}){
+export default function Link({name, text, setWindowName, setWindowText, handleShowWindow, handleHideWindow}){
   
   const handleClick = () => {
     handleShowWindow()
+    setWindowName(name)
     setWindowText(text)
   };
   return(

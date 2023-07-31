@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image'
 import Link from './Link'
 import Window from './Window'
@@ -6,6 +5,8 @@ import { useState } from 'react';
 export default function Main(){
   const [showWindow, setShowWindow] = useState(false);
   const [windowText, setWindowText] = useState("")
+  const [windowName, setWindowName] = useState("")
+
   const handleShowWindow = () => {
     setShowWindow(true);
   };
@@ -31,12 +32,12 @@ export default function Main(){
         />
       </div>
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <Link name="Docs" text="Find in-depth information about Next.js features and API." setWindowText={setWindowText} handleShowWindow={handleShowWindow} handleHideWindow={handleHideWindow}/>
-        <Link name="Learn" text="Learn about Next.js in an interactive course with&nbsp;quizzes!" setWindowText={setWindowText} handleShowWindow= {handleShowWindow} handleHideWindow={handleHideWindow}/>
-        <Link name="Templates" text="Explore the Next.js 13 playground." setWindowText={setWindowText} handleShowWindow= {handleShowWindow} handleHideWindow={handleHideWindow}/>
-        <Link name="Deploy" text="Instantly deploy your Next.js site to a shareable URL with Vercel." setWindowText={setWindowText} handleShowWindow= {handleShowWindow} handleHideWindow={handleHideWindow}/>
+        <Link name="Profile" text="Find in-depth information about Next.js features and API." setWindowName={setWindowName} setWindowText={setWindowText} handleShowWindow={handleShowWindow} handleHideWindow={handleHideWindow}/>
+        <Link name="Resume" text="Learn about Next.js in an interactive course with&nbsp;quizzes!" setWindowName={setWindowName} setWindowText={setWindowText} handleShowWindow= {handleShowWindow} handleHideWindow={handleHideWindow}/>
+        <Link name="Projects" text="Explore the Next.js 13 playground." setWindowName={setWindowName} setWindowText={setWindowText} handleShowWindow= {handleShowWindow} handleHideWindow={handleHideWindow}/>
+        <Link name="Contact" text="Instantly deploy your Next.js site to a shareable URL with Vercel." setWindowName={setWindowName} setWindowText={setWindowText} handleShowWindow= {handleShowWindow} handleHideWindow={handleHideWindow}/>
       </div>
-      <Window isVisible={showWindow} text={windowText} handleHideWindow={handleHideWindow}/>
+      <Window isVisible={showWindow} name={windowName} text={windowText} handleHideWindow={handleHideWindow}/>
     </main>
   )
 }
